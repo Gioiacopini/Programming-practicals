@@ -6,15 +6,15 @@ This is a temporary script file.
 """
 #import statements
 import random
+import operator
+import matplotlib.pyplot
 
 # lists 
 agents =[] #this is an empty list
 
-#Make a y and x variable (randomly generated)
-y0 = random.randint(0,100)
-x0 = random.randint(0,100)
-
-agents.append([x0,y0])
+#Make a y and x variable (randomly generated) without creating separate variables.
+#this code appends random integers between 0 and 99 to the list [agents] created above. 
+agents.append([random.randint(0,99),random.randint(0,99)])
 
 print (agents)
 
@@ -58,10 +58,8 @@ else:
 print(agents[0][1])
 
 # Create x1 and y1 (randomly generated)
-y1 = random.randint(0,100)
-x1 = random.randint(0,100)
 
-agents.append([x1,y1])
+agents.append([random.randint(0,99),random.randint(0,99)])
 
 print(agents)
 
@@ -106,6 +104,24 @@ print(agents[1][1])
 distance = ((agents[0][0]-agents[1][0])**2 + (agents[0][1] - agents[1][1])**2)**0.5
 print (distance)
 
+#let's run an analysis to work out which agent is furthest north (highest y)
+print(max(agents, key=operator.itemgetter(1)))
+
+#let's run an analysis to work out which agent is furthest east (highest x)
+
+print(max(agents, key=operator.itemgetter(0)))
+
+#plot the agents using matplotlib.pyplot
+
+matplotlib.pyplot.ylim(0, 99)
+matplotlib.pyplot.xlim(0, 99)
+matplotlib.pyplot.scatter(agents[0][1],agents[0][0])
+matplotlib.pyplot.scatter(agents[1][1],agents[1][0])
+# colour the agent furthest east a different color
+m = max(agents, key=operator.itemgetter(1))
+matplotlib.pyplot.scatter(m[1],m[0], color='red')
+
+matplotlib.pyplot.show()
 
 
 
