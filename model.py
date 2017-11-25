@@ -7,9 +7,9 @@ This is a temporary script file.
 #import statements
 import random
 
-#Make a y and x variable
-y0 = 50
-x0 = 50 
+#Make a y and x variable (randomly generated)
+y0 = random.randint(0,100)
+x0 = random.randint(0,100)
 
 print (x0, y0)
 
@@ -45,9 +45,9 @@ else:
     
 print (x0, y0)
 
-# Create x1 and y1
-y1 = 50
-x1 = 50 
+# Create x1 and y1 (randomly generated)
+y1 = random.randint(0,100)
+x1 = random.randint(0,100)
 
 print (x1, y1)
 
@@ -88,6 +88,7 @@ print (x1, y1)
 
 distance = ((x0-x1)**2 + (y0 - y1)**2)**0.5
 print (distance)
+
 
 
 
