@@ -21,11 +21,11 @@ num_of_stores = 8
 num_of_customers = 50
 num_of_iterations= 100
 
-
+#create stores
 for i in range(num_of_stores):
     stores.append(bootsframework.Stores(stores))
-#generate customers 
 
+#generate customers 
 for i in range (num_of_customers):
     customers.append(bootsframework.Customers(customers))
 #print (customers)
