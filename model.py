@@ -10,25 +10,24 @@ import agentframework
 import csv
 import random
 
+#create variables 
 num_of_agents = 10
-num_of_iterations = 100
+num_of_iterations = 50
 neighborhood = 20
 store = 0
 
-# lists 
-agents =[] #this is an empty list
+#create empty lists in which items will be appointed later in the code
+agents =[] 
 environment=[]
 
-# randomly make agents
-
+#randomly create agents
 for i in range(num_of_agents):
     agents.append(agentframework.Agent(environment, agents))
     
 #read data 
-
 file = open("in.txt", newline='')
 
-reader= csv.reader(file, quoting=csv.QUOTE.NONNUMERIC)
+reader = csv.reader(file, quoting=csv.QUOTE_NONNUMERIC)
 for row in reader:
 #for each row in the file we create an empty row list
     rowlist=[]
@@ -52,8 +51,8 @@ matplotlib.pyplot.ylim(0, 99)
 matplotlib.pyplot.xlim(0, 99)
 matplotlib.pyplot.imshow(environment)
 for i in range(num_of_agents):
-    matplotlib.pyplot.scatter(agents[i].x,agents[i].y)
-    # colour the agent furthest east a different color
+    matplotlib.pyplot.scatter(agents[i].x,agents[i].y, color="blue")
+    #colour the agent furthest east a different color
     #m = max(agents, key=operator.itemgetter(1))
     #matplotlib.pyplot.scatter(m[1],m[0], color='red')
 matplotlib.pyplot.show()

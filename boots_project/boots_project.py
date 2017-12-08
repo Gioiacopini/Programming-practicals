@@ -20,6 +20,8 @@ distances =[]
 num_of_stores = 8
 num_of_customers = 50
 num_of_iterations= 100
+revenue = 0 
+money = 100
 
 #create stores
 for i in range(num_of_stores):
@@ -30,15 +32,14 @@ for i in range (num_of_customers):
     customers.append(bootsframework.Customers(customers))
 #print (customers)
 
-#make customer move randomply without wandering off the plane
+#make customer move and shop randomly without wandering off the plane
 for j in range(num_of_iterations):
     random.shuffle(customers)
     for i in range(num_of_customers):
         customers[i].move()
+        customers[i].shop(stores)
         
-
-
-#plot 
+#plot the graph
 
 matplotlib.pyplot.ylim(0, 99)
 matplotlib.pyplot.xlim(0, 99)
