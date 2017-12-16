@@ -46,6 +46,7 @@ for j in range(num_of_iterations):
         agents[i].eat()
         agents[i].share_with_neighbours(neighborhood)
 
+
 #plot the agents and environment using matplotlib.pyplot
 matplotlib.pyplot.ylim(0, 99)
 matplotlib.pyplot.xlim(0, 99)
@@ -57,4 +58,25 @@ for i in range(num_of_agents):
     #matplotlib.pyplot.scatter(m[1],m[0], color='red')
 matplotlib.pyplot.show()
 
+#write a csv file 
+file2 = open("environmentout.csv", "w", newline = "")
+writer = csv.writer(file2)
+
+for row in environment:
+    writer.writerow(row)
+
+file2.close
+
+#write a file that writes the total stored by all the agents on a line.
+#this code gets the model to append the data to the file other than clearing it each time
+
+for agent in agents:
+    total_store = store + agents[i].store
+
+file3 = open("totalstorebyagent.csv", "a", newline="")
+file3.write(str(total_store)+ "\n")
+
+file3.close()
+
+file.close()
 
