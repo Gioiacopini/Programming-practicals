@@ -6,9 +6,11 @@ This is a temporary script file.
 """
 #import statements
 import matplotlib.pyplot
+import matplotlib.animation
 import agentframework
 import csv
 import random
+
 
 #create variables 
 num_of_agents = 10
@@ -19,6 +21,11 @@ store = 0
 #create empty lists in which items will be appointed later in the code
 agents =[] 
 environment=[]
+
+#create fig and ax variables to use later for animation. 
+fig = matplotlib.pyplot.figure()
+ax = fig.add_axes([0, 0, 1, 1])
+
 
 #randomly create agents
 for i in range(num_of_agents):
@@ -36,6 +43,10 @@ for row in reader:
         rowlist.append(item)
 #we append the rowlist into the environment
     environment.append(rowlist)
+    
+#set up animation
+def update(frame_number):
+    fig.clear()
 
 #make agents move, eat and interact with neighbours
 for j in range(num_of_iterations):
@@ -56,7 +67,11 @@ for i in range(num_of_agents):
     #colour the agent furthest east a different color
     #m = max(agents, key=operator.itemgetter(1))
     #matplotlib.pyplot.scatter(m[1],m[0], color='red')
-matplotlib.pyplot.show()
+
+#animate
+animation = matplotlib.animation.FuncAnimation(fig, update, interval = 1)
+
+fig.show()
 
 #write a csv file 
 file2 = open("environmentout.csv", "w", newline = "")
