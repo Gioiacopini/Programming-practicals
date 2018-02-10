@@ -1,4 +1,4 @@
-#Model Description
+# Model Description
 
 This code builds up to an agent based model (ABM). ABMs are generally iterative models. They run by allowing the agents repeat the activities they are programmed to do for a certain number of iterations.
 
